@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎂 Ibar's Spooky 23rd Birthday! 👻</title>
+    <title>💀 Ibar's Dark 23rd Birthday 🩸</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Chiller&family=Eater&display=swap');
         
         * {
             margin: 0;
@@ -14,38 +14,92 @@
         }
 
         body {
-            font-family: 'Butcherman', cursive;
-            background: linear-gradient(45deg, #1a0033, #330066, #000000);
-            color: #fff;
+            font-family: 'Chiller', cursive;
+            background: #000000;
+            color: #ff0000;
             overflow-x: hidden;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" fill="%23ff6b6b"/></svg>'), auto;
-        }
-
-        .container {
-            min-height: 100vh;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" fill="%23ff0000"/></svg>'), auto;
             position: relative;
         }
 
-        /* Floating ghosts animation */
-        .ghost {
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 0, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(80, 0, 0, 0.3) 0%, transparent 50%),
+                linear-gradient(180deg, #000000 0%, #1a0000 50%, #000000 100%);
+            z-index: -2;
+            animation: bloodPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes bloodPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* Disturbing background effects */
+        .blood-drip {
+            position: fixed;
+            width: 2px;
+            background: linear-gradient(to bottom, #ff0000, #8b0000);
+            animation: drip 3s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes drip {
+            0% {
+                height: 0;
+                top: 0;
+            }
+            50% {
+                height: 100px;
+            }
+            100% {
+                height: 0;
+                top: 100vh;
+            }
+        }
+
+        /* Creepy floating elements */
+        .floating-horror {
             position: fixed;
             font-size: 2rem;
-            animation: float 3s ease-in-out infinite;
+            animation: haunt 6s ease-in-out infinite;
             z-index: 1000;
             pointer-events: none;
+            text-shadow: 0 0 20px #ff0000;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+        @keyframes haunt {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.7;
+            }
+            25% { 
+                transform: translateY(-30px) rotate(5deg) scale(1.1);
+                opacity: 1;
+            }
+            50% { 
+                transform: translateY(-15px) rotate(-3deg) scale(0.9);
+                opacity: 0.8;
+            }
+            75% { 
+                transform: translateY(-25px) rotate(2deg) scale(1.05);
+                opacity: 0.9;
+            }
         }
 
-        /* Spooky header */
+        /* Disturbing header */
         .header {
             text-align: center;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.8);
-            border-bottom: 3px solid #ff6b6b;
+            padding: 3rem 2rem;
+            background: linear-gradient(180deg, #000000, #330000, #000000);
+            border-bottom: 5px solid #8b0000;
             position: relative;
             overflow: hidden;
         }
@@ -57,325 +111,503 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.3), transparent);
-            animation: shine 2s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.2), transparent);
+            animation: bloodShine 3s infinite;
         }
 
-        @keyframes shine {
+        @keyframes bloodShine {
             0% { left: -100%; }
             100% { left: 100%; }
         }
 
         .main-title {
-            font-family: 'Creepster', cursive;
-            font-size: 3.5rem;
-            color: #ff6b6b;
-            text-shadow: 0 0 20px #ff6b6b, 0 0 40px #ff6b6b;
+            font-family: 'Nosifer', cursive;
+            font-size: 4rem;
+            color: #ff0000;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #8b0000,
+                0 0 40px #8b0000;
             margin-bottom: 1rem;
-            animation: pulse 2s infinite;
+            animation: bloodGlow 2s ease-in-out infinite alternate;
+            letter-spacing: 3px;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        @keyframes bloodGlow {
+            from { 
+                text-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #8b0000;
+            }
+            to { 
+                text-shadow: 
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    0 0 40px #8b0000,
+                    0 0 50px #8b0000;
+            }
         }
 
         .subtitle {
-            font-family: 'Nosifer', cursive;
-            font-size: 1.5rem;
-            color: #ffff66;
-            text-shadow: 0 0 10px #ffff66;
+            font-family: 'Eater', cursive;
+            font-size: 2rem;
+            color: #8b0000;
+            text-shadow: 0 0 15px #8b0000;
+            animation: flicker 1.5s infinite;
         }
 
-        /* Interactive sections */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Disturbing sections */
         .section {
-            padding: 3rem 2rem;
-            margin: 2rem 0;
-            background: rgba(51, 0, 102, 0.3);
-            border: 2px solid #ff6b6b;
-            border-radius: 20px;
-            margin: 2rem;
+            padding: 4rem 2rem;
+            margin: 3rem 2rem;
+            background: 
+                linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),
+                radial-gradient(circle at center, rgba(255, 0, 0, 0.05), transparent);
+            border: 3px solid #8b0000;
+            border-radius: 0;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
+            box-shadow: 
+                inset 0 0 50px rgba(139, 0, 0, 0.3),
+                0 0 30px rgba(139, 0, 0, 0.2);
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #8b0000, #ff0000, #8b0000, #ff0000);
+            z-index: -1;
+            animation: borderPulse 3s linear infinite;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
 
         .section:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px #ff6b6b;
-            background: rgba(51, 0, 102, 0.5);
+            transform: scale(1.01);
+            box-shadow: 
+                inset 0 0 80px rgba(139, 0, 0, 0.5),
+                0 0 50px rgba(139, 0, 0, 0.4);
         }
 
         .section-title {
             font-family: 'Creepster', cursive;
-            font-size: 2rem;
-            color: #ffff66;
+            font-size: 2.5rem;
+            color: #ff0000;
             text-align: center;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 15px #ffff66;
+            margin-bottom: 3rem;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #8b0000;
+            animation: titleShake 4s infinite;
         }
 
-        /* Spooky cake */
+        @keyframes titleShake {
+            0%, 100% { transform: translateX(0); }
+            10% { transform: translateX(-2px); }
+            20% { transform: translateX(2px); }
+            30% { transform: translateX(-1px); }
+            40% { transform: translateX(1px); }
+            50% { transform: translateX(0); }
+        }
+
+        /* Disturbing cake */
         .cake-container {
             text-align: center;
-            margin: 2rem 0;
+            margin: 3rem 0;
+            position: relative;
         }
 
         .cake {
-            font-size: 8rem;
+            font-size: 10rem;
             display: inline-block;
-            animation: wobble 2s infinite;
+            animation: cakeHorror 3s infinite;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 0 20px #8b0000);
         }
 
         .cake:hover {
-            transform: scale(1.2);
-            filter: hue-rotate(90deg);
+            transform: scale(1.3) rotate(5deg);
+            filter: 
+                drop-shadow(0 0 30px #ff0000)
+                hue-rotate(180deg)
+                saturate(2);
         }
 
-        @keyframes wobble {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(2deg); }
-            75% { transform: rotate(-2deg); }
+        @keyframes cakeHorror {
+            0%, 100% { 
+                transform: rotate(0deg) scale(1);
+                filter: drop-shadow(0 0 20px #8b0000);
+            }
+            25% { 
+                transform: rotate(2deg) scale(1.05);
+                filter: drop-shadow(0 0 25px #ff0000);
+            }
+            50% { 
+                transform: rotate(-1deg) scale(0.95);
+                filter: drop-shadow(0 0 15px #8b0000);
+            }
+            75% { 
+                transform: rotate(1deg) scale(1.02);
+                filter: drop-shadow(0 0 30px #ff0000);
+            }
         }
 
-        /* Interactive buttons */
-        .spooky-button {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            border: none;
-            padding: 1rem 2rem;
-            font-family: 'Butcherman', cursive;
-            font-size: 1.2rem;
-            color: white;
-            border-radius: 10px;
+        /* Disturbing buttons */
+        .horror-button {
+            background: linear-gradient(45deg, #8b0000, #ff0000, #8b0000);
+            border: 2px solid #ff0000;
+            padding: 1.5rem 3rem;
+            font-family: 'Chiller', cursive;
+            font-size: 1.4rem;
+            color: #ffffff;
             cursor: pointer;
-            margin: 1rem;
+            margin: 1.5rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 
+                0 0 20px rgba(139, 0, 0, 0.5),
+                inset 0 0 20px rgba(255, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .spooky-button::before {
+        .horror-button::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
-        .spooky-button:hover::before {
+        .horror-button:hover::before {
             left: 100%;
         }
 
-        .spooky-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
-            background: linear-gradient(45deg, #ff8e8e, #ffaaaa);
+        .horror-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 10px 30px rgba(139, 0, 0, 0.8),
+                inset 0 0 30px rgba(255, 0, 0, 0.4);
+            background: linear-gradient(45deg, #ff0000, #ff4444, #ff0000);
+            text-shadow: 0 0 10px #ffffff;
         }
 
-        .spooky-button:active {
-            transform: translateY(0px);
+        .horror-button:active {
+            transform: translateY(-2px) scale(1.02);
         }
 
-        /* Countdown timer */
+        /* Disturbing countdown */
         .countdown {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            max-width: 600px;
-            margin: 2rem auto;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto;
         }
 
         .countdown-item {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1.5rem;
-            border-radius: 15px;
+            background: 
+                linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
+                radial-gradient(circle, rgba(255, 0, 0, 0.1), transparent);
+            padding: 2rem;
             text-align: center;
-            border: 2px solid #ffff66;
-            transition: all 0.3s ease;
+            border: 2px solid #8b0000;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            animation: countdownPulse 2s infinite;
+        }
+
+        @keyframes countdownPulse {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
         }
 
         .countdown-item:hover {
-            transform: rotateY(10deg);
-            box-shadow: 0 0 20px #ffff66;
+            transform: rotateX(10deg) scale(1.05);
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.6);
         }
 
         .countdown-number {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
-            color: #ff6b6b;
+            color: #ff0000;
             display: block;
+            text-shadow: 0 0 15px #ff0000;
+            animation: numberGlow 2s infinite alternate;
+        }
+
+        @keyframes numberGlow {
+            from { text-shadow: 0 0 15px #ff0000; }
+            to { text-shadow: 0 0 25px #ff0000, 0 0 35px #8b0000; }
         }
 
         .countdown-label {
-            font-size: 1rem;
-            color: #ffff66;
-            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            color: #8b0000;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Memory game */
+        /* Disturbing memory game */
         .memory-game {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            max-width: 400px;
-            margin: 2rem auto;
+            gap: 1.5rem;
+            max-width: 500px;
+            margin: 3rem auto;
         }
 
         .memory-card {
             aspect-ratio: 1;
-            background: linear-gradient(45deg, #330066, #660099);
-            border: 2px solid #ff6b6b;
-            border-radius: 10px;
+            background: 
+                linear-gradient(135deg, #000000, #330000),
+                radial-gradient(circle, rgba(139, 0, 0, 0.3), transparent);
+            border: 2px solid #8b0000;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.3);
+        }
+
+        .memory-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .memory-card:hover::before {
+            opacity: 1;
         }
 
         .memory-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #ff6b6b;
+            transform: scale(1.1) rotateY(10deg);
+            box-shadow: 
+                0 0 30px rgba(139, 0, 0, 0.8),
+                inset 0 0 30px rgba(255, 0, 0, 0.2);
         }
 
         .memory-card.flipped {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #8b0000, #ff0000);
+            transform: rotateY(180deg) scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
         }
 
         .memory-card.matched {
-            background: linear-gradient(45deg, #66ff66, #88ff88);
-            animation: celebrate 0.5s ease;
+            background: linear-gradient(135deg, #006600, #00ff00);
+            animation: matchedHorror 1s ease;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
         }
 
-        @keyframes celebrate {
+        @keyframes matchedHorror {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            25% { transform: scale(1.2) rotate(5deg); }
+            50% { transform: scale(1.1) rotate(-3deg); }
+            75% { transform: scale(1.15) rotate(2deg); }
         }
 
-        /* Spooky facts */
-        .fact-container {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            border: 2px solid #ffff66;
-            position: relative;
-        }
-
-        .fact-text {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            text-align: center;
-            color: #fff;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Balloon pop game */
+        /* Disturbing balloon game */
         .balloon-game {
             position: relative;
-            height: 300px;
+            height: 400px;
             overflow: hidden;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            margin: 2rem 0;
+            background: 
+                linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(139, 0, 0, 0.2)),
+                radial-gradient(circle at center, rgba(255, 0, 0, 0.1), transparent);
+            border: 3px solid #8b0000;
+            margin: 3rem 0;
+            box-shadow: inset 0 0 50px rgba(139, 0, 0, 0.4);
         }
 
         .balloon {
             position: absolute;
-            font-size: 3rem;
+            font-size: 4rem;
             cursor: pointer;
-            animation: rise 4s linear infinite;
-            transition: all 0.2s ease;
+            animation: balloonRise 5s linear infinite;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 10px #8b0000);
         }
 
         .balloon:hover {
-            transform: scale(1.2);
+            transform: scale(1.3) rotate(10deg);
+            filter: drop-shadow(0 0 20px #ff0000);
         }
 
-        @keyframes rise {
+        @keyframes balloonRise {
             from {
-                bottom: -50px;
-                transform: translateX(0);
+                bottom: -80px;
+                transform: translateX(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
             }
             to {
-                bottom: 350px;
-                transform: translateX(50px);
+                bottom: 450px;
+                transform: translateX(100px) rotate(360deg);
+                opacity: 0;
             }
         }
 
-        /* Score display */
+        /* Disturbing score display */
         .score {
             text-align: center;
-            font-size: 1.5rem;
-            color: #ffff66;
-            margin: 1rem 0;
-            text-shadow: 0 0 10px #ffff66;
+            font-size: 2rem;
+            color: #ff0000;
+            margin: 2rem 0;
+            text-shadow: 0 0 15px #ff0000;
+            font-family: 'Eater', cursive;
+            animation: scoreFlicker 2s infinite;
         }
 
-        /* Wish form */
+        @keyframes scoreFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Disturbing facts container */
+        .fact-container {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(139, 0, 0, 0.3)),
+                radial-gradient(circle, rgba(255, 0, 0, 0.1), transparent);
+            padding: 3rem;
+            border: 3px solid #8b0000;
+            margin: 3rem 0;
+            position: relative;
+            box-shadow: 
+                inset 0 0 50px rgba(139, 0, 0, 0.4),
+                0 0 30px rgba(139, 0, 0, 0.3);
+        }
+
+        .fact-text {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            text-align: center;
+            color: #ff0000;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 0 10px #8b0000;
+            animation: factGlow 3s infinite alternate;
+        }
+
+        @keyframes factGlow {
+            from { text-shadow: 0 0 10px #8b0000; }
+            to { text-shadow: 0 0 20px #ff0000, 0 0 30px #8b0000; }
+        }
+
+        /* Disturbing wish form */
         .wish-form {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            border: 2px solid #ff6b6b;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(139, 0, 0, 0.2)),
+                radial-gradient(circle, rgba(255, 0, 0, 0.05), transparent);
+            padding: 3rem;
+            border: 3px solid #8b0000;
+            margin: 3rem 0;
+            box-shadow: 
+                inset 0 0 50px rgba(139, 0, 0, 0.3),
+                0 0 25px rgba(139, 0, 0, 0.2);
         }
 
         .wish-input {
             width: 100%;
-            padding: 1rem;
-            background: rgba(51, 0, 102, 0.8);
-            border: 2px solid #ffff66;
-            border-radius: 10px;
-            color: white;
-            font-family: 'Butcherman', cursive;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #8b0000;
+            color: #ff0000;
+            font-family: 'Chiller', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
             resize: vertical;
+            box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
         .wish-input::placeholder {
-            color: #ccc;
+            color: #8b0000;
         }
 
         .wish-input:focus {
             outline: none;
-            box-shadow: 0 0 15px #ffff66;
-            border-color: #ff6b6b;
+            box-shadow: 
+                inset 0 0 30px rgba(139, 0, 0, 0.5),
+                0 0 20px rgba(255, 0, 0, 0.4);
+            border-color: #ff0000;
         }
 
-        /* Wishes display */
+        /* Disturbing wishes display */
         .wishes-container {
-            max-height: 300px;
+            max-height: 400px;
             overflow-y: auto;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .wish-item {
-            background: rgba(51, 0, 102, 0.6);
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 10px;
-            border-left: 4px solid #ffff66;
-            animation: slideIn 0.5s ease;
+            background: 
+                linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(0, 0, 0, 0.8)),
+                radial-gradient(circle, rgba(255, 0, 0, 0.05), transparent);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 5px solid #8b0000;
+            animation: wishSlide 0.8s ease;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
-        @keyframes slideIn {
+        .wish-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 25px rgba(139, 0, 0, 0.5);
+        }
+
+        @keyframes wishSlide {
             from {
                 opacity: 0;
-                transform: translateX(-50px);
+                transform: translateX(-100px);
             }
             to {
                 opacity: 1;
@@ -383,56 +615,62 @@
             }
         }
 
-        /* Photo gallery */
+        /* Disturbing photo gallery */
         .photo-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
         .photo-frame {
             aspect-ratio: 1;
-            background: linear-gradient(45deg, #330066, #660099);
-            border: 3px solid #ff6b6b;
-            border-radius: 15px;
+            background: 
+                linear-gradient(135deg, #000000, #330000),
+                radial-gradient(circle, rgba(139, 0, 0, 0.3), transparent);
+            border: 4px solid #8b0000;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 
+                inset 0 0 30px rgba(139, 0, 0, 0.4),
+                0 0 20px rgba(139, 0, 0, 0.2);
         }
 
         .photo-frame:hover {
-            transform: rotate(5deg) scale(1.05);
-            box-shadow: 0 0 25px #ff6b6b;
+            transform: rotate(3deg) scale(1.1);
+            box-shadow: 
+                0 0 40px rgba(139, 0, 0, 0.8),
+                inset 0 0 50px rgba(255, 0, 0, 0.3);
         }
 
         .photo-frame::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 0, 0.2), transparent);
             transform: rotate(45deg);
-            transition: all 0.5s;
+            transition: all 0.8s;
         }
 
         .photo-frame:hover::before {
-            animation: photoShine 0.5s ease;
+            animation: photoHorrorShine 0.8s ease;
         }
 
-        @keyframes photoShine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        @keyframes photoHorrorShine {
+            0% { transform: translateX(-200%) translateY(-200%) rotate(45deg); }
+            100% { transform: translateX(200%) translateY(200%) rotate(45deg); }
         }
 
-        /* Surprise modal */
+        /* Disturbing modal */
         .modal {
             display: none;
             position: fixed;
@@ -440,9 +678,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 10000;
-            animation: fadeIn 0.3s ease;
+            animation: modalFadeIn 0.5s ease;
         }
 
         .modal.show {
@@ -451,76 +689,75 @@
             justify-content: center;
         }
 
-        @keyframes fadeIn {
+        @keyframes modalFadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
         .modal-content {
-            background: linear-gradient(45deg, #330066, #660099);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 3px solid #ff6b6b;
+            background: 
+                linear-gradient(135deg, #000000, #330000),
+                radial-gradient(circle, rgba(139, 0, 0, 0.4), transparent);
+            padding: 4rem;
+            border: 4px solid #8b0000;
             text-align: center;
-            max-width: 500px;
+            max-width: 600px;
             position: relative;
-            animation: modalPop 0.5s ease;
+            animation: modalHorrorPop 0.8s ease;
+            box-shadow: 
+                0 0 50px rgba(139, 0, 0, 0.8),
+                inset 0 0 30px rgba(255, 0, 0, 0.2);
         }
 
-        @keyframes modalPop {
-            0% { transform: scale(0.5) rotate(180deg); opacity: 0; }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        @keyframes modalHorrorPop {
+            0% { 
+                transform: scale(0.3) rotate(180deg); 
+                opacity: 0; 
+            }
+            50% { 
+                transform: scale(1.1) rotate(10deg); 
+                opacity: 0.8; 
+            }
+            100% { 
+                transform: scale(1) rotate(0deg); 
+                opacity: 1; 
+            }
         }
 
         .close-modal {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 2rem;
+            top: 15px;
+            right: 20px;
+            font-size: 3rem;
             cursor: pointer;
-            color: #ff6b6b;
+            color: #ff0000;
             transition: all 0.3s ease;
+            text-shadow: 0 0 10px #ff0000;
         }
 
         .close-modal:hover {
-            transform: scale(1.2);
-            color: #ffff66;
+            transform: scale(1.3) rotate(90deg);
+            color: #ffffff;
+            text-shadow: 0 0 20px #ff0000;
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .section {
-                margin: 1rem;
-                padding: 2rem 1rem;
-            }
-            
-            .countdown {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .memory-game {
-                grid-template-columns: repeat(3, 1fr);
-                max-width: 300px;
-            }
-            
-            .cake {
-                font-size: 6rem;
-            }
-        }
-
-        /* Particle effects */
+        /* Disturbing particle effects */
         .particle {
             position: fixed;
             pointer-events: none;
             z-index: 9999;
+            animation: particleHorror 3s ease-out forwards;
+        }
+
+        @keyframes particleHorror {
+            0% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) rotate(360deg) translateY(-200px);
+            }
         }
 
         /* Loading screen */
@@ -530,167 +767,311 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #000000, #330066);
+            background: 
+                linear-gradient(45deg, #000000, #330000),
+                radial-gradient(circle, rgba(139, 0, 0, 0.3), transparent);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 99999;
-            transition: opacity 1s ease;
+            transition: opacity 1.5s ease;
         }
 
         .loading-text {
-            font-family: 'Creepster', cursive;
-            font-size: 3rem;
-            color: #ff6b6b;
-            text-shadow: 0 0 20px #ff6b6b;
-            animation: loadingPulse 1s infinite;
+            font-family: 'Nosifer', cursive;
+            font-size: 4rem;
+            color: #ff0000;
+            text-shadow: 
+                0 0 20px #ff0000,
+                0 0 40px #8b0000;
+            animation: loadingHorror 1.5s infinite;
         }
 
-        @keyframes loadingPulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.1); }
+        @keyframes loadingHorror {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1) rotate(0deg); 
+            }
+            50% { 
+                opacity: 0.6; 
+                transform: scale(1.1) rotate(2deg); 
+            }
         }
 
         /* Audio controls */
         .audio-controls {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 30px;
+            right: 30px;
             z-index: 1000;
         }
 
         .audio-button {
-            background: rgba(255, 107, 107, 0.8);
-            border: none;
-            padding: 10px;
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            border: 2px solid #ff0000;
+            padding: 15px;
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
         }
 
         .audio-button:hover {
-            background: rgba(255, 107, 107, 1);
-            transform: scale(1.1);
+            background: linear-gradient(45deg, #ff0000, #ff4444);
+            transform: scale(1.2);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+
+        /* Glitch effects */
+        .glitch {
+            animation: glitchEffect 0.3s infinite;
+        }
+
+        @keyframes glitchEffect {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.6rem;
+            }
+            
+            .section {
+                margin: 2rem 1rem;
+                padding: 3rem 1.5rem;
+            }
+            
+            .countdown {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .memory-game {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 350px;
+            }
+            
+            .cake {
+                font-size: 8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b0000, #ff0000);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #ff0000, #ff4444);
+        }
+
+        /* Creepy text effects */
+        .creepy-text {
+            animation: creepyTextEffect 4s infinite;
+        }
+
+        @keyframes creepyTextEffect {
+            0%, 100% { 
+                letter-spacing: normal;
+                text-shadow: 0 0 10px #ff0000;
+            }
+            25% { 
+                letter-spacing: 2px;
+                text-shadow: 0 0 15px #ff0000, 0 0 25px #8b0000;
+            }
+            50% { 
+                letter-spacing: 4px;
+                text-shadow: 0 0 20px #ff0000, 0 0 30px #8b0000;
+            }
+            75% { 
+                letter-spacing: 1px;
+                text-shadow: 0 0 12px #ff0000, 0 0 20px #8b0000;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
-        <div class="loading-text">Loading Spooky Surprise... 👻</div>
+        <div class="loading-text">SUMMONING DARKNESS... 💀</div>
     </div>
 
     <!-- Audio Controls -->
     <div class="audio-controls">
-        <button class="audio-button" onclick="toggleMusic()" id="musicBtn">🎵</button>
+        <button class="audio-button" onclick="toggleMusic()" id="musicBtn" title="Toggle Horror Music">🎵</button>
     </div>
 
-    <!-- Floating Ghosts -->
-    <div class="ghost" style="top: 10%; left: 5%;">👻</div>
-    <div class="ghost" style="top: 20%; right: 10%; animation-delay: 1s;">🎃</div>
-    <div class="ghost" style="top: 60%; left: 15%; animation-delay: 2s;">💀</div>
-    <div class="ghost" style="top: 80%; right: 20%; animation-delay: 0.5s;">🦇</div>
+    <!-- Blood drips -->
+    <div class="blood-drip" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="blood-drip" style="left: 25%; animation-delay: 1s;"></div>
+    <div class="blood-drip" style="left: 40%; animation-delay: 2s;"></div>
+    <div class="blood-drip" style="left: 60%; animation-delay: 0.5s;"></div>
+    <div class="blood-drip" style="left: 80%; animation-delay: 1.5s;"></div>
+    <div class="blood-drip" style="left: 95%; animation-delay: 2.5s;"></div>
+
+    <!-- Floating horror elements -->
+    <div class="floating-horror" style="top: 15%; left: 8%; animation-delay: 0s;">💀</div>
+    <div class="floating-horror" style="top: 25%; right: 12%; animation-delay: 2s;">🩸</div>
+    <div class="floating-horror" style="top: 65%; left: 18%; animation-delay: 4s;">⚰️</div>
+    <div class="floating-horror" style="top: 85%; right: 25%; animation-delay: 1s;">🔪</div>
+    <div class="floating-horror" style="top: 45%; left: 85%; animation-delay: 3s;">👁️</div>
+
+    <!-- Horror Background Music -->
+    <audio id="horrorMusic" loop preload="auto">
+        <source src="fantastic.mp3" type="audio/mpeg">
+        <source src="fantastic.ogg" type="audio/ogg">
+        <!-- Fallback untuk browser yang tidak support -->
+    </audio>
+
+    <!-- Sound Effects -->
+    <audio id="screamSound" preload="auto">
+        <source src="scream.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="thunderSound" preload="auto">
+        <source src="thunder.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1 class="main-title">SELAMAT ULANG TAHUN IBAR! 🎂</h1>
-            <p class="subtitle">Yang Ke-23 Tahun! 🎉👻</p>
+            <h1 class="main-title creepy-text">IBAR'S CURSED 23RD BIRTHDAY 💀</h1>
+            <p class="subtitle">THE DARKNESS AWAKENS... 🩸</p>
         </header>
 
-        <!-- Birthday Cake Section -->
+        <!-- Cursed Cake Section -->
         <section class="section">
-            <h2 class="section-title">🎂 Tiup Lilinnya! 🕯️</h2>
+            <h2 class="section-title">⚰️ THE CURSED CAKE OF DOOM ⚰️</h2>
             <div class="cake-container">
-                <div class="cake" onclick="blowCandles()">🎂</div>
-                <p style="text-align: center; margin-top: 1rem; font-size: 1.2rem;">Klik kue untuk meniup lilin!</p>
+                <div class="cake" onclick="blowCursedCandles()">🎂</div>
+                <p style="text-align: center; margin-top: 2rem; font-size: 1.5rem; color: #8b0000;">
+                    Dare to blow the cursed candles... if you can survive 💀
+                </p>
             </div>
         </section>
 
-        <!-- Countdown to Next Birthday -->
+        <!-- Death Countdown -->
         <section class="section">
-            <h2 class="section-title">⏰ Countdown ke Ulang Tahun Berikutnya!</h2>
+            <h2 class="section-title">⏰ COUNTDOWN TO THE NEXT RITUAL ⏰</h2>
             <div class="countdown" id="countdown">
                 <div class="countdown-item">
                     <span class="countdown-number" id="days">365</span>
-                    <span class="countdown-label">Hari</span>
+                    <span class="countdown-label">Days of Torment</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-number" id="hours">0</span>
-                    <span class="countdown-label">Jam</span>
+                    <span class="countdown-label">Hours of Agony</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-number" id="minutes">0</span>
-                    <span class="countdown-label">Menit</span>
+                    <span class="countdown-label">Minutes of Dread</span>
                 </div>
                 <div class="countdown-item">
                     <span class="countdown-number" id="seconds">0</span>
-                    <span class="countdown-label">Detik</span>
+                    <span class="countdown-label">Seconds of Terror</span>
                 </div>
             </div>
         </section>
 
-        <!-- Memory Game -->
+        <!-- Memory Game of the Damned -->
         <section class="section">
-            <h2 class="section-title">🧠 Game Memori Seram!</h2>
-            <div class="score">Skor: <span id="memoryScore">0</span></div>
+            <h2 class="section-title">🧠 MEMORY GAME OF THE DAMNED 🧠</h2>
+            <div class="score">SOULS COLLECTED: <span id="memoryScore">0</span> 💀</div>
             <div class="memory-game" id="memoryGame"></div>
-            <button class="spooky-button" onclick="resetMemoryGame()">Reset Game</button>
+            <button class="horror-button" onclick="resetMemoryGame()">RESET THE CURSE</button>
         </section>
 
-        <!-- Balloon Pop Game -->
+        <!-- Balloon Massacre -->
         <section class="section">
-            <h2 class="section-title">🎈 Pecahkan Balon Seram!</h2>
-            <div class="score">Balon Dipecahkan: <span id="balloonScore">0</span></div>
+            <h2 class="section-title">🎈 BALLOON MASSACRE 🎈</h2>
+            <div class="score">VICTIMS DESTROYED: <span id="balloonScore">0</span> 🩸</div>
             <div class="balloon-game" id="balloonGame"></div>
-            <button class="spooky-button" onclick="startBalloonGame()">Mulai Game</button>
+            <button class="horror-button" onclick="startBalloonMassacre()">BEGIN THE SLAUGHTER</button>
         </section>
 
-        <!-- Spooky Facts -->
+        <!-- Dark Secrets -->
         <section class="section">
-            <h2 class="section-title">🔮 Fakta Seram Tentang Ibar!</h2>
+            <h2 class="section-title">🔮 IBAR'S DARK SECRETS 🔮</h2>
             <div class="fact-container">
-                <div class="fact-text" id="factText">Klik tombol untuk fakta seram!</div>
+                <div class="fact-text" id="factText">Click to reveal the disturbing truth about Ibar... 💀</div>
             </div>
-            <button class="spooky-button" onclick="showRandomFact()">Fakta Baru!</button>
+            <button class="horror-button" onclick="revealDarkSecret()">UNVEIL THE DARKNESS</button>
         </section>
 
-        <!-- Photo Gallery -->
+        <!-- Gallery of Nightmares -->
         <section class="section">
-            <h2 class="section-title">📸 Galeri Kenangan Seram!</h2>
+            <h2 class="section-title">📸 GALLERY OF NIGHTMARES 📸</h2>
             <div class="photo-gallery">
-                <div class="photo-frame" onclick="showPhotoModal('Ibar sedang tertawa seram! 😈')">📷</div>
-                <div class="photo-frame" onclick="showPhotoModal('Ibar dengan kostum hantu! 👻')">🖼️</div>
-                <div class="photo-frame" onclick="showPhotoModal('Ibar merayakan Halloween! 🎃')">📸</div>
-                <div class="photo-frame" onclick="showPhotoModal('Ibar dan teman-teman zombie! 🧟')">🖼️</div>
+                <div class="photo-frame" onclick="showNightmarePhoto('Ibar\'s soul being consumed by darkness... 👹')">📷</div>
+                <div class="photo-frame" onclick="showNightmarePhoto('The moment Ibar made a pact with demons... 😈')">🖼️</div>
+                <div class="photo-frame" onclick="showNightmarePhoto('Ibar summoning the spirits of the underworld... 👻')">📸</div>
+                <div class="photo-frame" onclick="showNightmarePhoto('The ritual that changed everything... ⚰️')">🖼️</div>
+                <div class="photo-frame" onclick="showNightmarePhoto('Ibar\'s transformation into the darkness... 🌑')">📷</div>
+                <div class="photo-frame" onclick="showNightmarePhoto('The blood moon rises for Ibar... 🌙')">🖼️</div>
             </div>
         </section>
 
-        <!-- Birthday Wishes -->
+        <!-- Cursed Messages -->
         <section class="section">
-            <h2 class="section-title">💌 Kirim Ucapan Seram!</h2>
+            <h2 class="section-title">💌 SEND CURSED MESSAGES 💌</h2>
             <div class="wish-form">
-                <textarea class="wish-input" id="wishInput" placeholder="Tulis ucapan serammu untuk Ibar..." rows="4"></textarea>
-                <button class="spooky-button" onclick="addWish()">Kirim Ucapan 👻</button>
+                <textarea class="wish-input" id="wishInput" placeholder="Write your darkest wishes for Ibar... the spirits are listening 👁️" rows="5"></textarea>
+                <button class="horror-button" onclick="sendCursedMessage()">CAST THE CURSE 🔮</button>
                 <div class="wishes-container" id="wishesContainer"></div>
             </div>
         </section>
 
-        <!-- Surprise Buttons -->
+        <!-- Rituals of Terror -->
         <section class="section">
-            <h2 class="section-title">🎁 Kejutan Spesial!</h2>
+            <h2 class="section-title">🕯️ RITUALS OF TERROR 🕯️</h2>
             <div style="text-align: center;">
-                <button class="spooky-button" onclick="createFireworks()">Kembang Api! 🎆</button>
-                <button class="spooky-button" onclick="scareJumpscare()">Jumpscare! 😱</button>
-                <button class="spooky-button" onclick="showBirthdayMessage()">Pesan Rahasia 🔮</button>
-                <button class="spooky-button" onclick="danceParty()">Dance Party! 💃</button>
+                <button class="horror-button" onclick="summonFirestorm()">SUMMON FIRESTORM 🔥</button>
+                <button class="horror-button" onclick="unleashJumpscare()">UNLEASH TERROR 😱</button>
+                <button class="horror-button" onclick="revealProphecy()">REVEAL PROPHECY 🔮</button>
+                <button class="horror-button" onclick="beginRitual()">BEGIN DARK RITUAL 🕯️</button>
+                <button class="horror-button" onclick="openPortal()">OPEN PORTAL 🌀</button>
+                <button class="horror-button" onclick="summonSpirits()">SUMMON SPIRITS 👻</button>
+            </div>
+        </section>
+
+        <!-- Soul Harvester -->
+        <section class="section">
+            <h2 class="section-title">⚱️ SOUL HARVESTER ⚱️</h2>
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; margin: 2rem 0; color: #ff0000;">
+                    Souls Harvested: <span id="soulCount">0</span> 💀
+                </div>
+                <button class="horror-button" onclick="harvestSoul()">HARVEST SOUL</button>
+                <button class="horror-button" onclick="releaseSpirits()">RELEASE THE DAMNED</button>
             </div>
         </section>
     </div>
 
-    <!-- Surprise Modal -->
-    <div class="modal" id="surpriseModal">
+    <!-- Horror Modal -->
+    <div class="modal" id="horrorModal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <div id="modalContent"></div>
@@ -698,50 +1079,71 @@
     </div>
 
     <script>
-        // Global variables
+        // Global horror variables
         let memoryCards = [];
         let flippedCards = [];
         let memoryScore = 0;
         let balloonScore = 0;
         let balloonInterval;
         let musicPlaying = false;
+        let soulCount = 0;
+        let horrorLevel = 1;
 
-        // Spooky facts about Ibar
-        const spookyFacts = [
-            "Ibar ternyata bisa melihat hantu di cermin pada jam 3 pagi! 👻",
-            "Setiap kali Ibar tertawa, ada suara aneh dari lemari! 😱",
-            "Ibar punya kemampuan supernatural untuk menemukan makanan di kulkas kosong! 🔮",
-            "Konon katanya, Ibar bisa berkomunikasi dengan kucing hitam! 🐱‍⬛",
-            "Ibar memiliki koleksi boneka voodoo yang hidup di malam hari! 🪆",
-            "Setiap ulang tahun, Ibar bertambah 1 tahun lebih seram! 🎂",
-            "Ibar bisa membuat orang tertawa sampai kesurupan! 😂",
-            "Legenda mengatakan Ibar bisa mengubah pizza dingin jadi panas dengan tatapan! 🍕"
+        // Dark secrets about Ibar
+        const darkSecrets = [
+            "Ibar's shadow moves independently at 3:33 AM... it whispers forbidden names 👁️",
+            "Every mirror Ibar looks into shows a different reflection... one that's not quite human 🪞",
+            "Ibar can hear the thoughts of the dead... they never stop screaming 💀",
+            "The number 23 follows Ibar everywhere... it's carved into his soul by ancient forces ⚰️",
+            "Ibar's laughter echoes in empty rooms long after he's gone... the walls remember 🏚️",
+            "Black cats gather wherever Ibar walks... they're protecting something dark within 🐱‍⬛",
+            "Ibar's birthday cake bleeds when no one is watching... the candles never truly go out 🕯️",
+            "The spirits of 23 ancient souls are bound to Ibar... they hunger for freedom 👻",
+            "Ibar's dreams are shared by strangers across the world... they all see the same nightmare 🌙",
+            "Every photo of Ibar contains hidden faces in the shadows... faces of the forgotten dead 📸",
+            "Ibar ages backwards during solar eclipses... the darkness sustains him 🌑",
+            "The temperature drops 23 degrees whenever Ibar enters a room... death follows closely 🧊"
         ];
 
-        // Initialize page
+        // Cursed prophecies
+        const cursedProphecies = [
+            "The 23rd year shall bring forth the awakening of ancient powers within Ibar... 🔮",
+            "When the blood moon rises, Ibar's true nature will be revealed to all... 🌙",
+            "The spirits have chosen Ibar as their vessel... the transformation has begun... 👻",
+            "In the darkness of the 23rd year, Ibar will unlock doors that should remain closed... 🚪",
+            "The curse of eternal youth shall be Ibar's burden... forever 23 in the realm of shadows... ⚰️"
+        ];
+
+        // Initialize the horror experience
         window.addEventListener('load', function() {
             setTimeout(() => {
                 document.getElementById('loadingScreen').style.opacity = '0';
                 setTimeout(() => {
                     document.getElementById('loadingScreen').style.display = 'none';
-                }, 1000);
-            }, 2000);
+                    beginHorrorExperience();
+                }, 1500);
+            }, 3000);
             
-            initializeMemoryGame();
-            startCountdown();
-            createFloatingElements();
+            initializeMemoryGameOfDamned();
+            startDeathCountdown();
+            createHorrorEffects();
+            initializeHorrorSounds();
         });
 
-        // Countdown timer
-        function startCountdown() {
-            const nextBirthday = new Date();
-            nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
-            nextBirthday.setMonth(nextBirthday.getMonth()); // Assuming current month for demo
-            nextBirthday.setDate(nextBirthday.getDate());
+        // Begin the horror experience
+        function beginHorrorExperience() {
+            showModal('🩸 WELCOME TO IBAR\'S NIGHTMARE 🩸<br><br>You have entered a realm where reality bends...<br>Where shadows whisper secrets...<br>And where Ibar\'s 23rd birthday becomes eternal torment...<br><br>💀 PROCEED AT YOUR OWN RISK 💀');
+            createBloodRain();
+        }
+
+        // Death countdown timer
+        function startDeathCountdown() {
+            const nextRitual = new Date();
+            nextRitual.setFullYear(nextRitual.getFullYear() + 1);
             
             setInterval(() => {
                 const now = new Date().getTime();
-                const distance = nextBirthday.getTime() - now;
+                const distance = nextRitual.getTime() - now;
                 
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -752,30 +1154,45 @@
                 document.getElementById('hours').textContent = hours;
                 document.getElementById('minutes').textContent = minutes;
                 document.getElementById('seconds').textContent = seconds;
+                
+                // Add glitch effect randomly
+                if (Math.random() < 0.1) {
+                    document.getElementById('countdown').classList.add('glitch');
+                    setTimeout(() => {
+                        document.getElementById('countdown').classList.remove('glitch');
+                    }, 300);
+                }
             }, 1000);
         }
 
-        // Blow candles function
-        function blowCandles() {
+        // Cursed candle blowing
+        function blowCursedCandles() {
             const cake = document.querySelector('.cake');
-            cake.innerHTML = '🎂💨';
-            cake.style.animation = 'celebrate 1s ease';
+            cake.innerHTML = '💀';
+            cake.style.animation = 'cakeHorror 0.5s ease infinite';
             
-            createParticles('🎉', 20);
-            playSound('blow');
+            createHorrorParticles('🔥', 30);
+            createHorrorParticles('💀', 15);
+            createHorrorParticles('🩸', 20);
+            
+            document.body.style.background = '#330000';
             
             setTimeout(() => {
-                cake.innerHTML = '🎂';
-                cake.style.animation = 'wobble 2s infinite';
-            }, 2000);
+                cake.innerHTML = '⚰️';
+                document.body.style.background = '#000000';
+                cake.style.animation = 'cakeHorror 3s infinite';
+            }, 3000);
             
-            showModal('🎉 Selamat! Lilin sudah ditiup! 🎉<br>Semoga semua impian Ibar terkabul! ✨');
+            showModal('💀 THE CANDLES HAVE BEEN EXTINGUISHED 💀<br><br>But the flames of the underworld now burn eternal...<br>Ibar\'s soul is forever bound to the darkness...<br><br>🔥 THE RITUAL IS COMPLETE 🔥');
+            
+            soulCount += 23;
+            updateSoulCount();
         }
 
-        // Memory game
-        function initializeMemoryGame() {
-            const symbols = ['👻', '🎃', '💀', '🦇', '🕷️', '🔮', '⚰️', '🧙‍♂️'];
-            const gameSymbols = [...symbols, ...symbols];
+        // Memory game of the damned
+        function initializeMemoryGameOfDamned() {
+            const cursedSymbols = ['💀', '⚰️', '🔪', '🩸', '👁️', '🕯️', '🌙', '👻'];
+            const gameSymbols = [...cursedSymbols, ...cursedSymbols];
             gameSymbols.sort(() => Math.random() - 0.5);
             
             const gameContainer = document.getElementById('memoryGame');
@@ -788,13 +1205,13 @@
                 card.dataset.symbol = symbol;
                 card.dataset.index = index;
                 card.innerHTML = '❓';
-                card.addEventListener('click', flipCard);
+                card.addEventListener('click', flipCursedCard);
                 gameContainer.appendChild(card);
                 memoryCards.push(card);
             });
         }
 
-        function flipCard(e) {
+        function flipCursedCard(e) {
             const card = e.target;
             if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
             
@@ -802,34 +1219,40 @@
             card.innerHTML = card.dataset.symbol;
             flippedCards.push(card);
             
+            createHorrorParticles('🔮', 3);
+            
             if (flippedCards.length === 2) {
-                setTimeout(checkMatch, 500);
+                setTimeout(checkCursedMatch, 800);
             }
         }
 
-        function checkMatch() {
+        function checkCursedMatch() {
             const [card1, card2] = flippedCards;
             
             if (card1.dataset.symbol === card2.dataset.symbol) {
                 card1.classList.add('matched');
                 card2.classList.add('matched');
-                memoryScore += 10;
+                memoryScore += 13; // Cursed number
                 document.getElementById('memoryScore').textContent = memoryScore;
-                createParticles('✨', 5);
+                createHorrorParticles('💀', 8);
+                soulCount += 2;
+                updateSoulCount();
             } else {
                 card1.classList.remove('flipped');
                 card2.classList.remove('flipped');
                 card1.innerHTML = '❓';
                 card2.innerHTML = '❓';
+                createHorrorParticles('🩸', 5);
             }
             
             flippedCards = [];
             
-            // Check if game is complete
             if (document.querySelectorAll('.memory-card.matched').length === memoryCards.length) {
                 setTimeout(() => {
-                    showModal('🎉 Selamat! Kamu menang! 🎉<br>Skor akhir: ' + memoryScore);
-                }, 500);
+                    showModal('🎉 THE CURSE IS COMPLETE! 🎉<br><br>You have awakened all the spirits...<br>Final Score: ' + memoryScore + ' souls<br><br>💀 THEY ARE FREE NOW 💀');
+                    soulCount += 50;
+                    updateSoulCount();
+                }, 800);
             }
         }
 
@@ -837,11 +1260,12 @@
             memoryScore = 0;
             document.getElementById('memoryScore').textContent = memoryScore;
             flippedCards = [];
-            initializeMemoryGame();
+            initializeMemoryGameOfDamned();
+            createHorrorParticles('🔮', 10);
         }
 
-        // Balloon game
-        function startBalloonGame() {
+        // Balloon massacre
+        function startBalloonMassacre() {
             const gameContainer = document.getElementById('balloonGame');
             balloonScore = 0;
             document.getElementById('balloonScore').textContent = balloonScore;
@@ -849,69 +1273,83 @@
             clearInterval(balloonInterval);
             gameContainer.innerHTML = '';
             
-            balloonInterval = setInterval(createBalloon, 1000);
+            balloonInterval = setInterval(createCursedBalloon, 800);
             
             setTimeout(() => {
                 clearInterval(balloonInterval);
-                showModal('🎈 Game Selesai! 🎈<br>Balon yang dipecahkan: ' + balloonScore);
-            }, 30000);
+                showModal('🎈 THE MASSACRE IS COMPLETE! 🎈<br><br>Victims destroyed: ' + balloonScore + '<br>Their screams echo in eternity...<br><br>💀 WELL DONE, EXECUTIONER 💀');
+                soulCount += balloonScore * 3;
+                updateSoulCount();
+            }, 45000);
         }
 
-        function createBalloon() {
+        function createCursedBalloon() {
             const gameContainer = document.getElementById('balloonGame');
             const balloon = document.createElement('div');
             balloon.className = 'balloon';
-            balloon.innerHTML = ['🎈', '🎃', '👻', '💀'][Math.floor(Math.random() * 4)];
-            balloon.style.left = Math.random() * (gameContainer.offsetWidth - 50) + 'px';
-            balloon.addEventListener('click', popBalloon);
+            balloon.innerHTML = ['💀', '⚰️', '🔪', '🩸', '👁️'][Math.floor(Math.random() * 5)];
+            balloon.style.left = Math.random() * (gameContainer.offsetWidth - 80) + 'px';
+            balloon.addEventListener('click', destroyBalloon);
             gameContainer.appendChild(balloon);
             
             setTimeout(() => {
                 if (balloon.parentNode) {
                     balloon.remove();
                 }
-            }, 4000);
+            }, 5000);
         }
 
-        function popBalloon(e) {
+        function destroyBalloon(e) {
             const balloon = e.target;
             balloonScore++;
             document.getElementById('balloonScore').textContent = balloonScore;
             
-            createParticles('💥', 3);
-            balloon.style.animation = 'celebrate 0.3s ease';
+            createHorrorParticles('💥', 5);
+            createHorrorParticles('🩸', 3);
+            balloon.style.animation = 'matchedHorror 0.5s ease';
             
             setTimeout(() => {
                 balloon.remove();
-            }, 300);
+            }, 500);
+            
+            soulCount++;
+            updateSoulCount();
         }
 
-        // Random facts
-        function showRandomFact() {
-            const randomFact = spookyFacts[Math.floor(Math.random() * spookyFacts.length)];
+        // Dark secrets revelation
+        function revealDarkSecret() {
+            const randomSecret = darkSecrets[Math.floor(Math.random() * darkSecrets.length)];
             const factElement = document.getElementById('factText');
             
             factElement.style.opacity = '0';
-            setTimeout(() => {
-                factElement.innerHTML = randomFact;
-                factElement.style.opacity = '1';
-            }, 300);
+            factElement.classList.add('glitch');
             
-            createParticles('🔮', 5);
+            setTimeout(() => {
+                factElement.innerHTML = randomSecret;
+                factElement.style.opacity = '1';
+                factElement.classList.remove('glitch');
+            }, 500);
+            
+            createHorrorParticles('👁️', 8);
+            createHorrorParticles('🔮', 5);
+            
+            soulCount += 5;
+            updateSoulCount();
         }
 
-        // Photo modal
-        function showPhotoModal(description) {
-            showModal('📸 ' + description + '<br><br>Foto ini diambil dengan kamera hantu! 👻');
+        // Nightmare photo gallery
+        function showNightmarePhoto(description) {
+            showModal('📸 NIGHTMARE CAPTURED 📸<br><br>' + description + '<br><br>This image was taken by the spirits themselves...<br>Look closely and you might see your own fate... 👁️');
+            createHorrorParticles('📸', 10);
         }
 
-        // Wishes system
-        function addWish() {
+        // Cursed message system
+        function sendCursedMessage() {
             const wishInput = document.getElementById('wishInput');
             const wishText = wishInput.value.trim();
             
             if (wishText === '') {
-                alert('Tulis ucapan dulu dong! 👻');
+                showModal('💀 THE SPIRITS DEMAND WORDS 💀<br><br>You must write something for the curse to take effect...');
                 return;
             }
             
@@ -919,35 +1357,48 @@
             const wishElement = document.createElement('div');
             wishElement.className = 'wish-item';
             wishElement.innerHTML = `
-                <strong>Ucapan Seram:</strong><br>
-                ${wishText} 👻
-                <div style="text-align: right; margin-top: 0.5rem; font-size: 0.9rem; color: #ffff66;">
-                    - Dari hantu baik hati 💀
+                <strong style="color: #ff0000;">CURSED MESSAGE:</strong><br>
+                ${wishText} 💀
+                <div style="text-align: right; margin-top: 1rem; font-size: 1rem; color: #8b0000;">
+                    - Delivered by the spirits of the damned 👻
                 </div>
             `;
             
             wishesContainer.insertBefore(wishElement, wishesContainer.firstChild);
             wishInput.value = '';
             
-            createParticles('💌', 8);
-            showModal('✨ Ucapan berhasil dikirim! ✨<br>Ibar pasti senang! 🎉');
+            createHorrorParticles('💌', 12);
+            createHorrorParticles('🔮', 8);
+            showModal('✨ THE CURSE HAS BEEN CAST ✨<br><br>Your dark message has been delivered to Ibar...<br>The spirits will ensure it reaches its target... 👻');
+            
+            soulCount += 10;
+            updateSoulCount();
         }
 
-        // Surprise functions
-        function createFireworks() {
-            createParticles('🎆', 30);
-            createParticles('✨', 20);
-            createParticles('🎉', 25);
+        // Horror ritual functions
+        function summonFirestorm() {
+            playThunderSound(); // Mainkan suara petir
             
-            document.body.style.animation = 'pulse 0.5s ease 3';
+            createHorrorParticles('🔥', 50);
+            createHorrorParticles('💀', 30);
+            
+            document.body.style.background = 'linear-gradient(45deg, #ff0000, #000000)';
+            document.body.style.animation = 'bloodGlow 0.5s ease 5';
+            
             setTimeout(() => {
+                document.body.style.background = '#000000';
                 document.body.style.animation = '';
-            }, 1500);
+            }, 3000);
             
-            showModal('🎆 KEMBANG API UNTUK IBAR! 🎆<br>Selamat ulang tahun yang ke-23! 🎉');
+            showModal('🔥 FIRESTORM SUMMONED! 🔥<br><br>The flames of hell consume everything...<br>Ibar\'s power grows stronger with each soul burned...<br><br>💀 THE INFERNO RAGES ETERNAL 💀');
+            
+            soulCount += 25;
+            updateSoulCount();
         }
 
-        function scareJumpscare() {
+        function unleashJumpscare() {
+            playScreamSound(); // Mainkan suara jeritan
+            
             const jumpscare = document.createElement('div');
             jumpscare.style.cssText = `
                 position: fixed;
@@ -955,41 +1406,49 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: #000;
+                background: #ff0000;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 10rem;
+                font-size: 15rem;
                 z-index: 99999;
-                animation: fadeIn 0.1s ease;
+                animation: modalFadeIn 0.1s ease;
             `;
-            jumpscare.innerHTML = '👻';
+            jumpscare.innerHTML = '👹';
             document.body.appendChild(jumpscare);
             
             setTimeout(() => {
-                jumpscare.remove();
-                showModal('😱 GOTCHA! 😱<br>Selamat ulang tahun Ibar! Semoga nggak kaget! 😂');
-            }, 800);
-        }
-
-        function showBirthdayMessage() {
-            const messages = [
-                "🎂 Ibar, kamu sudah 23 tahun tapi masih kelihatan seperti hantu muda! 👻",
-                "🎉 Semoga di usia 23 ini, Ibar makin seram... eh, makin keren maksudnya! 😄",
-                "🔮 Ramalan: Di usia 23, Ibar akan menemukan harta karun... di dalam kulkas! 🍕",
-                "👻 Happy Birthday Ibar! Semoga hantu-hantu baik selalu menjagamu! 🎈"
-            ];
+                jumpscare.innerHTML = '💀';
+            }, 200);
             
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            showModal(randomMessage);
-            createParticles('🎁', 15);
+            setTimeout(() => {
+                jumpscare.innerHTML = '🔪';
+            }, 400);
+            
+            setTimeout(() => {
+                jumpscare.remove();
+                showModal('😱 TERROR UNLEASHED! 😱<br><br>Did you feel your soul leave your body?<br>That was just a taste of Ibar\'s true power...<br><br>💀 THE FEAR IS REAL 💀');
+            }, 1000);
+            
+            soulCount += 15;
+            updateSoulCount();
         }
 
-        function danceParty() {
-            const elements = document.querySelectorAll('.section, .ghost, .spooky-button');
+        function revealProphecy() {
+            const randomProphecy = cursedProphecies[Math.floor(Math.random() * cursedProphecies.length)];
+            showModal('🔮 THE PROPHECY SPEAKS 🔮<br><br>' + randomProphecy + '<br><br>The ancient texts have foretold this moment...<br>Ibar\'s destiny cannot be changed... 📜');
+            createHorrorParticles('🔮', 20);
+            createHorrorParticles('📜', 10);
+            
+            soulCount += 20;
+            updateSoulCount();
+        }
+
+        function beginRitual() {
+            const elements = document.querySelectorAll('.section, .floating-horror, .horror-button');
             elements.forEach((el, index) => {
                 setTimeout(() => {
-                    el.style.animation = 'celebrate 0.5s ease infinite';
+                    el.style.animation = 'glitchEffect 0.5s ease infinite';
                 }, index * 100);
             });
             
@@ -997,14 +1456,179 @@
                 elements.forEach(el => {
                     el.style.animation = '';
                 });
-            }, 5000);
+            }, 8000);
             
-            showModal('💃 DANCE PARTY TIME! 🕺<br>Selamat ulang tahun Ibar! Let\'s dance! 🎵');
-            createParticles('🎵', 20);
+            showModal('🕯️ THE DARK RITUAL BEGINS! 🕯️<br><br>Ancient forces stir in the shadows...<br>Ibar\'s transformation accelerates...<br>Reality bends to his will...<br><br>💀 THE CEREMONY IS ETERNAL 💀');
+            createHorrorParticles('🕯️', 30);
+            
+            soulCount += 35;
+            updateSoulCount();
         }
 
-        // Utility functions
-        function createParticles(emoji, count) {
+        function openPortal() {
+            const portal = document.createElement('div');
+            portal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 200px;
+                background: radial-gradient(circle, #ff0000, #000000);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                animation: portalSpin 2s linear infinite;
+            `;
+            document.body.appendChild(portal);
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes portalSpin {
+                    from { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+                    to { transform: translate(-50%, -50%) rotate(360deg) scale(1.5); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            setTimeout(() => {
+                portal.remove();
+                style.remove();
+                showModal('🌀 PORTAL OPENED! 🌀<br><br>A gateway to the underworld has been created...<br>Demons pour through to celebrate Ibar\'s birthday...<br><br>👹 THEY BRING GIFTS OF DARKNESS 👹');
+            }, 4000);
+            
+            createHorrorParticles('🌀', 25);
+            soulCount += 40;
+            updateSoulCount();
+        }
+
+        function summonSpirits() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const spirit = document.createElement('div');
+                    spirit.style.cssText = `
+                        position: fixed;
+                        left: ${Math.random() * window.innerWidth}px;
+                        top: ${Math.random() * window.innerHeight}px;
+                        font-size: 3rem;
+                        animation: haunt 2s ease-out forwards;
+                        pointer-events: none;
+                        z-index: 9999;
+                    `;
+                    spirit.innerHTML = ['👻', '💀', '👹', '😈'][Math.floor(Math.random() * 4)];
+                    document.body.appendChild(spirit);
+                    
+                    setTimeout(() => {
+                        spirit.remove();
+                    }, 2000);
+                }, i * 200);
+            }
+            
+            showModal('👻 SPIRITS SUMMONED! 👻<br><br>The dead have risen to honor Ibar...<br>They whisper secrets from beyond the veil...<br>Their presence strengthens the darkness...<br><br>💀 THE ARMY GROWS 💀');
+            
+            soulCount += 30;
+            updateSoulCount();
+        }
+
+        // Soul harvester functions
+        function harvestSoul() {
+            soulCount += Math.floor(Math.random() * 10) + 5;
+            updateSoulCount();
+            createHorrorParticles('💀', 15);
+            createHorrorParticles('⚱️', 8);
+            
+            const messages = [
+                'Another soul joins Ibar\'s collection... 💀',
+                'The harvest grows stronger... ⚱️',
+                'Death feeds the birthday celebration... 🎂',
+                'The spirits are pleased with your offering... 👻'
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            showModal('⚱️ SOUL HARVESTED! ⚱️<br><br>' + randomMessage + '<br><br>Total souls: ' + soulCount + ' 💀');
+        }
+
+        function releaseSpirits() {
+            if (soulCount < 10) {
+                showModal('💀 INSUFFICIENT SOULS 💀<br><br>You need at least 10 souls to release the spirits...<br>Continue harvesting... ⚱️');
+                return;
+            }
+            
+            soulCount -= 10;
+            updateSoulCount();
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createHorrorParticles('👻', 5);
+                }, i * 100);
+            }
+            
+            showModal('👻 SPIRITS RELEASED! 👻<br><br>10 souls have been freed from their torment...<br>They dance in celebration of Ibar\'s birthday...<br>But more will take their place... 💀');
+        }
+
+        function updateSoulCount() {
+            document.getElementById('soulCount').textContent = soulCount;
+            
+            if (soulCount >= 100) {
+                showModal('🎉 SOUL MILESTONE REACHED! 🎉<br><br>You have collected 100 souls for Ibar!<br>The darkness is pleased...<br>Ultimate power awaits... 👑💀');
+            }
+        }
+
+        // Horror effects
+        function createHorrorEffects() {
+            // Create floating horror elements
+            setInterval(() => {
+                const horrorEmojis = ['💀', '⚰️', '🔪', '🩸', '👁️', '🕯️', '🌙', '👻', '😈', '👹'];
+                const emoji = horrorEmojis[Math.floor(Math.random() * horrorEmojis.length)];
+                
+                const element = document.createElement('div');
+                element.style.cssText = `
+                    position: fixed;
+                    left: -80px;
+                    top: ${Math.random() * window.innerHeight}px;
+                    font-size: 2.5rem;
+                    animation: floatAcross 12s linear;
+                    pointer-events: none;
+                    z-index: 1;
+                    text-shadow: 0 0 15px #ff0000;
+                `;
+                element.innerHTML = emoji;
+                document.body.appendChild(element);
+                
+                setTimeout(() => {
+                    element.remove();
+                }, 12000);
+            }, 2000);
+            
+            // Random glitch effects
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    const elements = document.querySelectorAll('.section-title');
+                    const randomElement = elements[Math.floor(Math.random() * elements.length)];
+                    randomElement.classList.add('glitch');
+                    setTimeout(() => {
+                        randomElement.classList.remove('glitch');
+                    }, 500);
+                }
+            }, 5000);
+        }
+
+        function createBloodRain() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const drop = document.createElement('div');
+                    drop.className = 'blood-drip';
+                    drop.style.left = Math.random() * window.innerWidth + 'px';
+                    drop.style.animationDelay = Math.random() * 2 + 's';
+                    document.body.appendChild(drop);
+                    
+                    setTimeout(() => {
+                        drop.remove();
+                    }, 3000);
+                }, i * 200);
+            }
+        }
+
+        function createHorrorParticles(emoji, count) {
             for (let i = 0; i < count; i++) {
                 setTimeout(() => {
                     const particle = document.createElement('div');
@@ -1013,106 +1637,137 @@
                     particle.style.cssText = `
                         left: ${Math.random() * window.innerWidth}px;
                         top: ${Math.random() * window.innerHeight}px;
-                        font-size: ${Math.random() * 2 + 1}rem;
-                        animation: float 2s ease-out forwards;
+                        font-size: ${Math.random() * 2 + 1.5}rem;
+                        animation: particleHorror 3s ease-out forwards;
                         pointer-events: none;
+                        text-shadow: 0 0 15px #ff0000;
                     `;
                     document.body.appendChild(particle);
                     
                     setTimeout(() => {
                         particle.remove();
-                    }, 2000);
-                }, i * 100);
+                    }, 3000);
+                }, i * 150);
             }
         }
 
-        function createFloatingElements() {
-            setInterval(() => {
-                const emojis = ['👻', '🎃', '💀', '🦇', '🕷️', '🔮'];
-                const emoji = emojis[Math.floor(Math.random() * emojis.length)];
-                
-                const element = document.createElement('div');
-                element.style.cssText = `
-                    position: fixed;
-                    left: -50px;
-                    top: ${Math.random() * window.innerHeight}px;
-                    font-size: 2rem;
-                    animation: floatAcross 10s linear;
-                    pointer-events: none;
-                    z-index: 1;
-                `;
-                element.innerHTML = emoji;
-                document.body.appendChild(element);
-                
-                setTimeout(() => {
-                    element.remove();
-                }, 10000);
-            }, 3000);
-        }
-
+        // Modal functions
         function showModal(content) {
-            const modal = document.getElementById('surpriseModal');
+            const modal = document.getElementById('horrorModal');
             const modalContent = document.getElementById('modalContent');
             modalContent.innerHTML = content;
             modal.classList.add('show');
         }
 
         function closeModal() {
-            const modal = document.getElementById('surpriseModal');
+            const modal = document.getElementById('horrorModal');
             modal.classList.remove('show');
         }
 
+        // Audio functions
         function toggleMusic() {
             const btn = document.getElementById('musicBtn');
+            const horrorMusic = document.getElementById('horrorMusic');
+            
             if (musicPlaying) {
                 btn.innerHTML = '🎵';
+                btn.title = 'Play Horror Music';
+                horrorMusic.pause();
                 musicPlaying = false;
+                showModal('🔇 SILENCE RETURNS 🔇<br><br>The spirits retreat into the shadows...<br>But they are still watching... 👁️');
             } else {
                 btn.innerHTML = '🔇';
+                btn.title = 'Stop Horror Music';
+                horrorMusic.volume = 0.3; // Volume 30% biar ga terlalu kencang
+                horrorMusic.play().catch(e => {
+                    console.log('Audio play failed:', e);
+                    showModal('🎵 AUDIO BLOCKED 🎵<br><br>Browser memblokir autoplay audio.<br>Klik tombol musik lagi untuk memulai! 🔊');
+                    btn.innerHTML = '🎵';
+                    return;
+                });
                 musicPlaying = true;
+                showModal('🎵 HORROR MUSIC ACTIVATED 🎵<br><br>The sounds of the underworld now fill the air...<br>Let the darkness consume your soul... 💀');
             }
         }
 
-        function playSound(type) {
-            // Sound effects would be implemented here
-            console.log('Playing sound:', type);
+        function playScreamSound() {
+            const screamSound = document.getElementById('screamSound');
+            if (screamSound) {
+                screamSound.volume = 0.4;
+                screamSound.play().catch(e => console.log('Scream sound failed:', e));
+            }
         }
 
-        // Add floating across animation
-        const style = document.createElement('style');
-        style.textContent = `
+        function playThunderSound() {
+            const thunderSound = document.getElementById('thunderSound');
+            if (thunderSound) {
+                thunderSound.volume = 0.5;
+                thunderSound.play().catch(e => console.log('Thunder sound failed:', e));
+            }
+        }
+
+        function initializeHorrorSounds() {
+            // Initialize horror sound effects
+            console.log('Horror sound system initialized');
+        }
+
+        // Additional horror animations
+        const additionalStyle = document.createElement('style');
+        additionalStyle.textContent = `
             @keyframes floatAcross {
                 from {
-                    left: -50px;
+                    left: -80px;
                     transform: rotate(0deg);
+                    opacity: 0.8;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
                 }
                 to {
-                    left: calc(100vw + 50px);
+                    left: calc(100vw + 80px);
                     transform: rotate(360deg);
+                    opacity: 0;
                 }
             }
         `;
-        document.head.appendChild(style);
+        document.head.appendChild(additionalStyle);
 
         // Click anywhere to close modal
-        document.getElementById('surpriseModal').addEventListener('click', function(e) {
+        document.getElementById('horrorModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
             }
         });
 
-        // Easter eggs
+        // Easter eggs and hidden features
         let clickCount = 0;
-        document.addEventListener('click', function() {
-            clickCount++;
+        let lastClickTime = 0;
+        
+        document.addEventListener('click', function(e) {
+            const currentTime = Date.now();
+            
+            if (currentTime - lastClickTime < 500) {
+                clickCount++;
+            } else {
+                clickCount = 1;
+            }
+            
+            lastClickTime = currentTime;
+            
             if (clickCount === 23) {
-                showModal('🎉 EASTER EGG! 🎉<br>Kamu sudah klik 23 kali!<br>Sama seperti umur Ibar! 🎂');
-                createParticles('🥚', 23);
+                showModal('🎉 CURSED EASTER EGG! 🎉<br><br>You clicked 23 times... the sacred number!<br>Ibar\'s power has been amplified!<br>The spirits are impressed... 💀<br><br>+100 SOULS AWARDED! ⚱️');
+                createHorrorParticles('🥚', 23);
+                createHorrorParticles('💀', 23);
+                soulCount += 100;
+                updateSoulCount();
                 clickCount = 0;
             }
         });
 
-        // Konami code easter egg
+        // Konami code for ultimate horror
         let konamiCode = [];
         const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight'];
         
@@ -1123,12 +1778,49 @@
             }
             
             if (konamiCode.join(',') === konamiSequence.join(',')) {
-                showModal('🎮 KONAMI CODE ACTIVATED! 🎮<br>Secret mode unlocked!<br>Ibar is now SUPER SPOOKY! 👻✨');
-                document.body.style.filter = 'hue-rotate(180deg) saturate(2)';
-                createParticles('🌟', 50);
+                showModal('🎮 ULTIMATE HORROR UNLOCKED! 🎮<br><br>The ancient code has been entered...<br>Ibar\'s true form is revealed!<br>MAXIMUM DARKNESS ACHIEVED! 👹<br><br>🔥 THE APOCALYPSE BEGINS 🔥');
+                
+                document.body.style.filter = 'hue-rotate(180deg) saturate(3) contrast(2)';
+                document.body.style.animation = 'glitchEffect 0.2s infinite';
+                
+                createHorrorParticles('🌟', 100);
+                createHorrorParticles('💀', 50);
+                createHorrorParticles('🔥', 75);
+                
+                soulCount += 666;
+                updateSoulCount();
                 konamiCode = [];
+                
+                setTimeout(() => {
+                    document.body.style.filter = '';
+                    document.body.style.animation = '';
+                }, 10000);
             }
         });
+
+        // Random horror events
+        setInterval(() => {
+            if (Math.random() < 0.1) {
+                const horrorEvents = [
+                    () => createBloodRain(),
+                    () => {
+                        document.body.style.animation = 'bloodGlow 0.3s ease 3';
+                        setTimeout(() => document.body.style.animation = '', 1000);
+                    },
+                    () => createHorrorParticles('👁️', 10),
+                    () => {
+                        const elements = document.querySelectorAll('.horror-button');
+                        elements.forEach(el => {
+                            el.classList.add('glitch');
+                            setTimeout(() => el.classList.remove('glitch'), 500);
+                        });
+                    }
+                ];
+                
+                const randomEvent = horrorEvents[Math.floor(Math.random() * horrorEvents.length)];
+                randomEvent();
+            }
+        }, 10000);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964cb84b965ff92c',t:'MTc1MzQ1NzY1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'964cf1cb11265ff3',t:'MTc1MzQ2MDAwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
